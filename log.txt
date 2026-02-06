@@ -1,0 +1,76 @@
+
+-- CMake Build Type: Release
+-- Found PkgConfig: /usr/bin/pkg-config (found version "1.7.3")
+CMake Warning at CMakeLists.txt:399 (message):
+  Unable to find Jemalloc, attempting to fall back to TBB malloc.
+
+        It is recommended to use Jemalloc for optimum performance.
+
+
+-- Configuring for OpenVDB Version 13.0.0
+-- Found Python: /core/Linux/APPZ/packages/python/3.12.10/bin/python3 (found suitable version "3.12.10", minimum required is "3.11") found components: Development Interpreter Development.Module Development.Embed
+-- Found nanobind: /core/Linux/APPZ/packages/nanobind/2.5.0/nanobind (found version "2.5.0")
+-- Configuring for OpenVDB ABI Version 13
+-- ----------------------------------------------------
+-- ------------- Configuring OpenVDBCore --------------
+-- ----------------------------------------------------
+-- Found Boost: /core/Linux/APPZ/packages/boost/1.85.0/python-3.12/lib/cmake/Boost-1.85.0/BoostConfig.cmake (found suitable version "1.85.0", minimum required is "1.82") found components: iostreams
+CMake Warning at cmake/FindTBB.cmake:191 (message):
+
+
+        FindTBB located both an old and new tbb installation.
+            old: /core/Linux/APPZ/packages/tbb/2022.2.0/include/tbb/tbb_stddef.h
+            new: /core/Linux/APPZ/packages/tbb/2022.2.0/include/oneapi/tbb/version.h
+        The NEWER versioned installation will be used. You can set TBB_INCLUDEDIR
+        to control FindTBB.cmake search, or explicitly set Tbb_INCLUDE_DIR to the
+        desired location.
+
+Call Stack (most recent call first):
+  openvdb/openvdb/CMakeLists.txt:132 (find_package)
+
+
+-- Found TBB: /core/Linux/APPZ/packages/tbb/2022.2.0/include (found suitable version "2022.2", minimum required is "2020.3") found components: tbb
+-- Found Blosc: /core/Linux/APPZ/packages/blosc/1.21.5/lib64/libblosc.so (found suitable version "1.21.5", minimum required is "1.17.0")
+-- Found ZLIB: /core/Linux/APPZ/packages/zlib/1.2.13/lib/libz.so (found suitable version "1.2.13", minimum required is "1.2.7")
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+-- Found Threads: TRUE
+-- ----------------------------------------------------
+-- ------------ Configuring OpenVDBPython -------------
+-- ----------------------------------------------------
+CMake Warning at /storage/.NAS5/rocky9_core/Linux/APPZ/packages/cmake/3.26.5/share/cmake-3.26/Modules/CMakeFindDependencyMacro.cmake:76 (find_package):
+  By not providing "Findtsl-robin-map.cmake" in CMAKE_MODULE_PATH this
+  project has asked CMake to find a package configuration file provided by
+  "tsl-robin-map", but CMake did not find one.
+
+  Could not find a package configuration file provided by "tsl-robin-map"
+  with any of the following names:
+
+    tsl-robin-mapConfig.cmake
+    tsl-robin-map-config.cmake
+
+  Add the installation prefix of "tsl-robin-map" to CMAKE_PREFIX_PATH or set
+  "tsl-robin-map_DIR" to a directory containing one of the above files.  If
+  "tsl-robin-map" provides a separate development package or SDK, be sure it
+  has been installed.
+Call Stack (most recent call first):
+  /core/Linux/APPZ/packages/nanobind/2.5.0/nanobind/cmake/nanobind-config.cmake:241 (find_dependency)
+  /core/Linux/APPZ/packages/nanobind/2.5.0/nanobind/cmake/nanobind-config.cmake:371 (nanobind_build_library)
+  openvdb/openvdb/python/CMakeLists.txt:68 (nanobind_add_module)
+
+
+-- ----------------------------------------------------
+-- ----------- Configuring OpenVDBBinaries ------------
+-- ----------------------------------------------------
+CMake Warning at cmake/FindTBB.cmake:191 (message):
+
+
+        FindTBB located both an old and new tbb installation.
+            old: /core/Linux/APPZ/packages/tbb/2022.2.0/include/tbb/tbb_stddef.h
+            new: /core/Linux/APPZ/packages/tbb/2022.2.0/include/oneapi/tbb/version.h
+        The NEWER versioned installation will be used. You can set TBB_INCLUDEDIR
+        to control FindTBB.cmake search, or explicitly set Tbb_INCLUDE_DIR to the
+        desired location.
+
+Call Stack (most recent call first):
+  openvdb_cmd/CMakeLists.txt:56 (find_package)
