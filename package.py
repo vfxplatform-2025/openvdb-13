@@ -5,9 +5,11 @@ authors = ["DreamWorks Animation"]
 description = "OpenVDB: Sparse volume data structure and tools."
 
 variants = [
-    ["python-3.11"], # (13.0.0은 Python >= 3.11 요구)
-    ["python-3.12"],
-    ["python-3.13"],
+    ["python-3.11", "imath-3.1.9"],
+    ["python-3.11", "imath-3.2.0"],
+    ["python-3.12", "imath-3.1.9"],
+    ["python-3.12", "imath-3.2.0"],
+    ["python-3.13", "imath-3.2.0"],
 ]
 
 requires = [
@@ -15,7 +17,6 @@ requires = [
     "tbb-2022.2.0",
     "zlib-1.2.13",
     "openexr-3.3.3",
-    "imath-3.2.0",
     "blosc-1.21.5",
 ]
 

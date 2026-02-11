@@ -97,7 +97,12 @@ def build(source_path, build_path, install_path_env, targets):
 
     install_root = install_path_env
     if "install" in targets:
-        install_root = f"/core/Linux/APPZ/packages/openvdb/{version}/{variant_subpath}"
+        server_base = f"/core/Linux/APPZ/packages/openvdb/{version}"
+        variant_idx = int(os.environ.get("REZ_BUILD_VARIANT_INDEX", "0"))
+        if variant_idx == 0:
+            clean_install_dir(server_base)
+            os.makedirs(server_base, exist_ok=True)
+        install_root = os.path.join(server_base, variant_subpath)
         clean_install_dir(install_root)
         os.makedirs(install_root, exist_ok=True)
 
@@ -193,6 +198,11 @@ def build(source_path, build_path, install_path_env, targets):
         marker = os.path.join(build_path, "build.rxt")
         print(f"Touching build marker: {marker}")
         open(marker, "a").close()
+
+    # variant.json 생성 (rez 패키지 등록에 필요)
+    variant_json = os.path.join(build_path, "variant.json")
+    with open(variant_json, "w") as f:
+        f.write("{}\n")
 
     print(f"openvdb-{version} (Python {py_version}) build/install complete: {install_root}")
 
